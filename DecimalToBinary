@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function that convert Decimal to binary
+int decToBinary(int n)
+{
+    int* a = malloc(32 * sizeof(int));
+    // Size of an integer is assumed to be 32 bits
+    for (int i = 31; i >= 0; i--) {
+        int k = n >> i; // right shift
+        if (k & 1){ 
+            printf("1");
+            *(a+i) = 1;            
+        }
+        else{
+            printf("0");
+            *(a+i) = 0;
+        } 
+    }
+    printf("\n");
+    for(int i = 31; i >= 0; i--){
+        printf("%d", a[i]);
+    }
+}
+
+int main()
+{
+    int n = 6;
+    decToBinary(n);
+}
+
+
